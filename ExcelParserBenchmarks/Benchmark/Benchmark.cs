@@ -30,10 +30,6 @@ namespace ExcelParserBenchmarks
             string elapsedTime = timeSpan.ToString("ss[.ff]");
 
             return Parser.GetType() + ": " + operation.ToString() + " benchmark completed in: " + timeSpan + "seconds";
-        }
-
-        
+        }        
     }
-
-
 }
