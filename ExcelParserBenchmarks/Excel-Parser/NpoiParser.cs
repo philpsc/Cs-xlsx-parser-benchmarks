@@ -17,16 +17,16 @@ namespace ExcelParserBenchmarks.Libraries
             var workbook = new XSSFWorkbook(); // Doesn't implement IDisposable; can't be used with "using"-block :(
             var worksheet = workbook.CreateSheet("0");
 
-            for (int i = 1; i < TestData.GetLength(0); i++)
+            for (int i = 1; i < testData.GetLength(0); i++)
             {
                 var row = worksheet.CreateRow(i);
-                for (int j = 1; j < TestData.GetLength(1); j++)
+                for (int j = 1; j < testData.GetLength(1); j++)
                 {
-                    row.CreateCell(j).SetCellValue(TestData[i, j]);
+                    row.CreateCell(j).SetCellValue(testData[i, j]);
                 }
             }
 
-            using (var fileStream = File.Create(ResultSavePath + "NpoiBenchmarkResult.xlsx"))
+            using (var fileStream = File.Create(resultSavePath + "NpoiBenchmarkResult.xlsx"))
             {
                 workbook.Write(fileStream);
             }
@@ -36,7 +36,7 @@ namespace ExcelParserBenchmarks.Libraries
         override public void ReadFromXlsx()
         {
             XSSFWorkbook workbook;
-            var filePath = ResultSavePath + "NpoiBenchmarkResult.xlsx";
+            var filePath = resultSavePath + "NpoiBenchmarkResult.xlsx";
             using (var fileStream = new FileStream(@filePath, FileMode.Open, FileAccess.Read))
             {
                 workbook = new XSSFWorkbook(fileStream);

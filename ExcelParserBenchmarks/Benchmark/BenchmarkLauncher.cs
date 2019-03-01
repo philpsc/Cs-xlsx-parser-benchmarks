@@ -15,7 +15,7 @@ namespace ExcelParserBenchmarks
             var resultSavePath = "..\\..\\Test-Data\\";
 
             // Zufallszahlen: Zweidimensionales Array mit 50.000 Zeilen, 100 Spalten 
-            var testData = new RandomNumbers(50000, 100).ProduceIntMatrix();
+            var testData = new RandomNumbers(5000, 10).ProduceIntMatrix();
 
             var epplusParser = new EpplusParser(testData, resultSavePath);
             var epplusBenchmark = new Benchmark(epplusParser);

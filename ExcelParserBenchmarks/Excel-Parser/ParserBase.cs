@@ -2,13 +2,13 @@
 {
     public abstract class ParserBase
     {
-        protected int[,] TestData { get; }
-        protected string ResultSavePath { get; }
+        protected int[,] testData;
+        protected string resultSavePath;
 
         public ParserBase(int[,] testData, string resultSavePath)
         {
-            this.TestData = testData;
-            this.ResultSavePath = resultSavePath;
+            this.testData = testData;
+            this.resultSavePath = resultSavePath;
         }
 
         public abstract void ReadFromXlsx();
